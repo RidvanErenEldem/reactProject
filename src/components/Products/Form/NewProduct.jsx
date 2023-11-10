@@ -6,7 +6,16 @@ export default function NewProduct(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(`Name: ${product.name} Price: ${product.price} Image: ${product.image}`);
-		props.newProduct(product);
+		if (product.name === "" || product.price === "" || product.image === "") {
+			props.setShowModal(true);
+			return;
+		}
+
+		props.setShowModal(false);
+		props.setProducts((prevProducts) => {
+			let biggestId = prevProducts.length === 0 ? 1 : prevProducts[prevProducts.length - 1].id + 1;
+			return [...prevProducts, { id: biggestId, productTitle: product.name, productPrice: product.price, imageUrl: product.image }];
+		});
 	}
 
 	function handleChange(event) {

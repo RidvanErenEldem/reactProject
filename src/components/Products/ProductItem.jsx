@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function ProductItem(props) {
 	const [name, setName] = useState(props.productTitle);
-
+	console.log(props);
 	return (
 		<div className="product-item">
 			<img src={props.imageUrl} alt="" className="product-image" />
@@ -12,7 +12,7 @@ function ProductItem(props) {
 				<strong className="product-title">{name}</strong>
 				<span className="product-price">{props.productPrice}₺</span>
 				<div className="button-container">
-					<Button title="Sil" addClass="danger" />
+					<Button title="Sil" addClass="danger" onClick={() => props.destroyProduct(props.id)} />
 					<Button title="Kaydet" addClass="success" onClick={() => props.click(name)} />
 					<Button
 						title="Change Title"

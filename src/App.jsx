@@ -6,10 +6,12 @@ import "dayjs/locale/tr";
 import Counter from "./components/Counter";
 import Button from "./components/UI/Button";
 import { useEffect, useState } from "react";
+import Modal from "./components/UI/Modal";
 
 function App() {
 	const [name, setName] = useState("Rıdvan Eren");
 	const [counter, setCounter] = useState(0);
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		console.log("Run this after every render");
@@ -24,6 +26,7 @@ function App() {
 				<p>Card content</p>
 				<p>Card content</p>
 			</Card>
+			{showModal ? <Modal setShowModal={setShowModal}></Modal> : ""}
 			<DatePicker locale={trTR} />
 			<Button title="+1" addClass="warning" onClick={() => setCounter(counter + 1)}>
 				+1
@@ -31,7 +34,7 @@ function App() {
 			<Button title="Change Name" addClass="success" onClick={() => setName(name === "Rıdvan Eren" ? "Mehmet Ali" : "Rıdvan")}>
 				Change Name
 			</Button>
-			<Products />
+			<Products setShowModal={setShowModal} />
 			<Counter />
 			<Button title="Ekle" addClass="success" />
 		</div>
