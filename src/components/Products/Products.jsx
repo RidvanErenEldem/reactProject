@@ -8,9 +8,7 @@ function Products() {
 	const [name, setName] = useState("Rıdvan Eren");
 	const [products, setProducts] = useState(productData);
 
-	function handleClick(clickName) {
-		setName(clickName);
-	}
+	const handleClick = (clickName) => setName(clickName);
 
 	function handleNewProduct(productToAdd) {
 		setProducts([...products, { id: products.length + 1, productTitle: productToAdd.name, productPrice: productToAdd.price, imageUrl: productToAdd.image }]);
