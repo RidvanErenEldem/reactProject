@@ -1,0 +1,25 @@
+.product-item {
+  border: 1px solid red;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 10px;
+}
+
+.button-container button {
+    margin: 0;
+}
