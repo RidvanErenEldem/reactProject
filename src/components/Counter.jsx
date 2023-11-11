@@ -1,7 +1,9 @@
 import { Button } from "antd";
 import { useState } from "react";
+import { red, cyan, gold } from "@ant-design/colors";
 
 function Counter() {
+	console.log(red);
 	const [count, setCount] = useState(0);
 
 	const [name, setName] = useState("Ahmet");
@@ -23,13 +25,13 @@ function Counter() {
 			<h3>{name}</h3>
 			<h1 style={{ fontSize: "48px", marginBottom: "20px" }}>Count: {count}</h1>
 			<div>
-				<Button type="primary" onClick={increment} style={{ marginRight: "10px" }}>
+				<Button type="primary" className="" onClick={increment} style={{ marginRight: "10px", backgroundColor: `${cyan[5]}` }}>
 					Increment
 				</Button>
-				<Button type="primary" danger onClick={decrement} style={{ marginRight: "10px" }}>
+				<Button type="primary" onClick={decrement} style={{ marginRight: "10px", backgroundColor: `${red[5]}` }}>
 					Decrement
 				</Button>
-				<Button type="primary" onClick={changeName}>
+				<Button type="primary" onClick={changeName} style={{ backgroundColor: `${gold[5]}` }}>
 					Ad Değiştir
 				</Button>
 			</div>

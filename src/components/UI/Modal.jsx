@@ -1,22 +1,25 @@
 import { useEffect } from "react";
-import Button from "./Button";
-import "./Modal.css";
 
-const Modal = ({ setShowModal }) => {
+function Modal({ setShowModal }) {
 	useEffect(() => {
-		// This function will run when the component is mounted
+		// clean-up function
 		return () => {
-			console.log("Modal unmounted");
+			console.log("modal kapatıldı.");
 		};
 	}, []);
 
 	return (
-		<div className="modal-wrapper absolute bg-gray-200  p-10">
-			<h3>Input boş olamaz</h3>
-			<p>Lütfen tüm inputları dolduralım</p>
-			<Button title="Kapat" addClass="danger" onClick={() => setShowModal(false)} />
+		<div className=" absolute w-[100%] h-[100%] flex justify-center items-center top-0 ">
+			<div className="absolute bg-red-300 opacity-40 w-[100%] h-[100%]" onClick={() => setShowModal(false)}></div>
+			<div className="modal-wrapper bg-gray-200 p-10 relative z-50">
+				<h3>Inputlar boş olamaz</h3>
+				<p>Lütfen tüm inputların dolu olduğundan emin olalım.</p>
+				<button className="bg-red-600 text-white p-3 rounded-md mt-10" onClick={() => setShowModal(false)}>
+					Kapat
+				</button>
+			</div>
 		</div>
 	);
-};
+}
 
 export default Modal;
