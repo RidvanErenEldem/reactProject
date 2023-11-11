@@ -3,6 +3,16 @@ import Button from "../UI/Button";
 import { useState } from "react";
 
 function ProductItem(props) {
+	const addToCart = () => {
+		console.log(props);
+		props.addToCart({
+			title: props.productTitle,
+			price: props.productPrice,
+			id: props.id,
+			image: props.imageUrl,
+		});
+	};
+
 	const [name, setName] = useState(props.productTitle);
 	return (
 		<div className="product-item">
@@ -12,7 +22,7 @@ function ProductItem(props) {
 				<span className="product-price">{props.productPrice}₺</span>
 				<div className="button-container">
 					<Button title="Sil" addClass="danger" onClick={() => props.destroyProduct(props.id)} />
-					<Button title="Kaydet" addClass="success" onClick={() => props.click(name)} />
+					<Button title="Sepete Ekle" addClass="success" onClick={addToCart} />
 					<Button
 						title="Change Title"
 						addClass="warning"
