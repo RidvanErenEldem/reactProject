@@ -4,7 +4,6 @@ import { useState } from "react";
 
 function ProductItem(props) {
 	const [name, setName] = useState(props.productTitle);
-	console.log(props);
 	return (
 		<div className="product-item">
 			<img src={props.imageUrl} alt="" className="product-image" />
