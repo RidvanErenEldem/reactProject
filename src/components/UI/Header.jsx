@@ -3,7 +3,11 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.jsx";
 
 function Header() {
-	const { cartItems } = useContext(CartContext);
+	const { cartItems, changeMod, isDarkMode } = useContext(CartContext);
+
+	const changeTheme = () => {
+		changeMod(!isDarkMode);
+	};
 
 	return (
 		<header>
@@ -13,6 +17,7 @@ function Header() {
 						<img src="https://sayactakip.meramedas.com.tr/img/logo/medaslogo.png" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
 						<span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">MEDAŞ</span>
 					</a>
+
 					<div className="flex items-center gap-2 lg:order-2">
 						<FaJediOrder className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" />
 						<strong className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">{cartItems.length}</strong>
@@ -30,8 +35,8 @@ function Header() {
 								</a>
 							</li>
 							<li>
-								<a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-									Marketplace
+								<a href="#" onClick={() => changeTheme()} className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+									Change Theme
 								</a>
 							</li>
 						</ul>

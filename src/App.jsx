@@ -1,16 +1,17 @@
 import Products from "./components/Products/Products";
-
+import { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 import "dayjs/locale/tr";
-
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Modal from "./components/UI/Modal";
 import Header from "./components/UI/Header";
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
+	const { isDarkMode } = useContext(CartContext);
 
 	return (
-		<Fragment>
+		<div className={isDarkMode ? "bg-black text-white" : ""}>
 			<Header />
 			{showModal ? <Modal setShowModal={setShowModal}></Modal> : ""}
 
@@ -34,7 +35,7 @@ function App() {
 				{/* <Counter />
 				<Button title="Ekle" addClass="success" /> */}
 			</div>
-		</Fragment>
+		</div>
 	);
 }
 
