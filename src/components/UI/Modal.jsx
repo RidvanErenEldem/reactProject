@@ -3,9 +3,7 @@ import { useEffect } from "react";
 function Modal({ setShowModal }) {
 	useEffect(() => {
 		// clean-up function
-		return () => {
-			console.log("modal kapatıldı.");
-		};
+		return () => {};
 	}, []);
 
 	return (

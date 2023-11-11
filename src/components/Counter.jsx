@@ -3,7 +3,6 @@ import { useState } from "react";
 import { red, cyan, gold } from "@ant-design/colors";
 
 function Counter() {
-	console.log(red);
 	const [count, setCount] = useState(0);
 
 	const [name, setName] = useState("Ahmet");

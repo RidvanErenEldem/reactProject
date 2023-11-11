@@ -4,7 +4,6 @@ import { useState } from "react";
 
 function ProductItem(props) {
 	const addToCart = () => {
-		console.log(props);
 		props.addToCart({
 			title: props.productTitle,
 			price: props.productPrice,

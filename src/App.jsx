@@ -12,7 +12,6 @@ function App() {
 
 	const addToCart = (product) => {
 		setCartItems([...cartItems, product]);
-		console.log(cartItems);
 	};
 
 	return (

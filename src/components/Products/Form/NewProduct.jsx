@@ -5,7 +5,6 @@ export default function NewProduct(props) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(`Name: ${product.name} Price: ${product.price} Image: ${product.image}`);
 		if (product.name === "" || product.price === "" || product.image === "") {
 			props.setShowModal(true);
 			return;
