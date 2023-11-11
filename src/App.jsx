@@ -8,15 +8,10 @@ import Header from "./components/UI/Header";
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
-	const [cartItems, setCartItems] = useState([]);
-
-	const addToCart = (product) => {
-		setCartItems([...cartItems, product]);
-	};
 
 	return (
 		<Fragment>
-			<Header cartItems={cartItems} />
+			<Header />
 			{showModal ? <Modal setShowModal={setShowModal}></Modal> : ""}
 
 			<div className="container mx-auto">
@@ -35,7 +30,7 @@ function App() {
 				<Button title="Change Name" addClass="success" onClick={() => setName(name === "Rıdvan Eren" ? "Mehmet Ali" : "Rıdvan")}>
 					Change Name
 				</Button> */}
-				<Products addToCart={addToCart} />
+				<Products />
 				{/* <Counter />
 				<Button title="Ekle" addClass="success" /> */}
 			</div>

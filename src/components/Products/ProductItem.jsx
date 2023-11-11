@@ -1,32 +1,38 @@
 import "./ProductItem.css";
 import Button from "../UI/Button";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext.jsx";
 
-function ProductItem(props) {
+function ProductItem({ productTitle, productPrice, imageUrl, id, destroyProduct }) {
+	const { setCartItems } = useContext(CartContext);
+
 	const addToCart = () => {
-		props.addToCart({
-			title: props.productTitle,
-			price: props.productPrice,
-			id: props.id,
-			image: props.imageUrl,
+		const newCartItem = {
+			id: id,
+			productTitle: productTitle,
+			productPrice: productPrice,
+			imageUrl: imageUrl,
+		};
+		setCartItems((prevCartItems) => {
+			return [...prevCartItems, newCartItem];
 		});
 	};
 
-	const [name, setName] = useState(props.productTitle);
+	const [name, setName] = useState(productTitle);
 	return (
 		<div className="product-item">
-			<img src={props.imageUrl} alt="" className="product-image" />
+			<img src={imageUrl} alt="" className="product-image" />
 			<div className="product-info p-3">
 				<strong className="product-title">{name}</strong>
-				<span className="product-price">{props.productPrice}₺</span>
+				<span className="product-price">{productPrice}₺</span>
 				<div className="button-container">
-					<Button title="Sil" addClass="danger" onClick={() => props.destroyProduct(props.id)} />
+					<Button title="Sil" addClass="danger" onClick={() => destroyProduct(id)} />
 					<Button title="Sepete Ekle" addClass="success" onClick={addToCart} />
 					<Button
 						title="Change Title"
 						addClass="warning"
 						onClick={() => {
-							setName(name === props.productTitle ? "Mehmet Ali" : props.productTitle);
+							setName(name === productTitle ? "Mehmet Ali" : productTitle);
 						}}
 					/>
 				</div>

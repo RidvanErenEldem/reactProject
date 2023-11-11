@@ -1,6 +1,10 @@
 import { FaJediOrder } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext.jsx";
 
-function Header({ cartItems }) {
+function Header() {
+	const { cartItems } = useContext(CartContext);
+
 	return (
 		<header>
 			<nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">

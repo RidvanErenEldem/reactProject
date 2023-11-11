@@ -3,7 +3,7 @@ import "./Products.css";
 import { productData } from "../../productData";
 import { useEffect, useState } from "react";
 
-function Products({ addToCart }) {
+function Products() {
 	const [products, setProducts] = useState(productData);
 	const [isLoaded, setIsLoaded] = useState(false);
 
@@ -54,7 +54,7 @@ function Products({ addToCart }) {
 			{isLoaded ? (
 				<div className="products-wrapper gap-4 mt-4">
 					{products.map(function (product) {
-						return <ProductItem addToCart={addToCart} imageUrl={product.imageUrl} productTitle={product.productTitle} productPrice={product.productPrice} key={product.id} id={product.id} destroyProduct={destroyProduct} />;
+						return <ProductItem imageUrl={product.imageUrl} productTitle={product.productTitle} productPrice={product.productPrice} key={product.id} id={product.id} destroyProduct={destroyProduct} />;
 					})}
 				</div>
 			) : (
